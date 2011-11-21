@@ -1,3 +1,5 @@
+-- Modification de la base characters après import de la base de production Fusion pour le core R2
+
 ALTER TABLE `auction` ADD COLUMN `item_count` INT(11) UNSIGNED NOT NULL DEFAULT '0'  AFTER `item_template` , ADD COLUMN `item_randompropertyid` INT(11) NOT NULL DEFAULT '0'  AFTER `item_count` ;
 
 ALTER TABLE `characters` DROP COLUMN `grantableLevels` ;
