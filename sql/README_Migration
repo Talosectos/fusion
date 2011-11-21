@@ -1,0 +1,14 @@
+Pour la migration sur le core R2:
+
+On repart sur une base world toute neuve: YTDB_0.14.4_R610_MaNGOS_R11835_SD2_R2319_ACID_R309_RuDB_R43
+Il faut importer la base persos et modifier la base realm pour qu'elle soit compatible R2.
+
+Pour migrer la base persos:
+1.	Dump de la base characters
+2.	Import du dump dans la base dev_characters
+3.	Modifier le schema de la base dev_characters avec migration_characters.sql
+4.	Passer les updates SQL nécessaires https://github.com/mangosR2/mangos/tree/master/sql_mr
+
+Pour migrer la base realmd:
+1.	Modifier le schema de la base realmd avec migration_realmd.sql
+2.	Passer les updates nécessaires https://github.com/mangosR2/mangos/tree/master/sql_mr
