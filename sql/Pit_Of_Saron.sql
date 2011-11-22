@@ -7,6 +7,8 @@ DELETE FROM `creature_ai_scripts` WHERE `creature_id` IN (36886,36879,36830,3678
 UPDATE `creature_template` SET `AIName` = '', WHERE `entry` IN (36886,36879,36830,36788,36891,37713,37712,36840,36893,36892,36841,36842,36874,36661);
 UPDATE `creature_template` SET `AIName` = '', `ScriptName`  = 'boss_scourgelord_tyrannus' WHERE `entry` = 36658;
 UPDATE `creature_template` SET `AIName` = '', `ScriptName`  = 'boss_rimefang' WHERE `entry` = 36661;
+DELETE FROM `creature_template` WHERE `entry` = 3666101;
+UPDATE `creature_template` SET `lootid`=0 WHERE `entry`='36661';
 */
 
 UPDATE `creature_template` SET `AIName` = 'EventAI',
@@ -83,7 +85,7 @@ INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inv
 (3666109, 36661, 0, 0, 100, 5, 31500, 31500, 30000, 30000, 11, 72121, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Frigecroc - Frostbite'),    
 (3666110, 36661, 0, 0, 100, 3, 32000, 32000, 30000, 30000, 11, 69232, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Frigecroc - Déflagration glaciale'),
 (3666111, 36661, 0, 0, 100, 5, 32000, 32000, 30000, 30000, 11, 69232, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Frigecroc - Déflagration glaciale'),
-(3666112, 36661, 25, 0, 100, 6, 36658, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Frigecroc - Die with Tyrannus'),
+(3666112, 36661, 25, 0, 100, 6, 36658, 0, 0, 0, 41, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Frigecroc - Die with Tyrannus'),
 -- Tyrannus
 (3665801, 36658, 0, 0, 100, 3, 10000, 10000, 50000, 50000, 11, 69155, 1, 1, 1, -1141, 0, 0, 4, 16762, 0, 0, 'Tyrannus - Choc énergique'),
 (3665802, 36658, 0, 0, 100, 5, 10000, 10000, 50000, 50000, 11, 69627, 1, 1, 1, -1141, 0, 0, 4, 16762, 0, 0, 'Tyrannus - Choc énergique'),
@@ -100,6 +102,15 @@ INSERT INTO `creature_ai_texts` (`entry` ,`content_default` ,`content_loc1` ,`co
 (-1141, 'Perhaps you should have stayed... in the mountains!', NULL, 'Vous auriez peut-être du rester... dans les montagnes!', NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 0, 0, 'Tyrannus Choc énergique'),
 (-1142, 'Such a shameful display. You are better off dead.', NULL, 'Quelle prestation embarassante, la mort vous va bien mieux', NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 0, 0, 'Tyrannus Marque du suzerain'),
 (-1138, 'Impossible.... Rimefang.... warn....', NULL , 'Impossible...Frigecroc... Avertis...', NULL , NULL , NULL , NULL , NULL , NULL , 0, 1, 0, 0, 'Tyrannus Death');
+
+-- Creation d'une creature mode hero pour Rimefang, afin de pouvoir gérer les loots héros
+INSERT INTO `creature_template` (`entry`,`difficulty_entry_1`,`difficulty_entry_2`,`difficulty_entry_3`,`KillCredit1`,`KillCredit2`,`modelid_1`,`modelid_2`,`modelid_3`,`modelid_4`,`name`,`subname`,`IconName`,`gossip_menu_id`,`minlevel`,`maxlevel`,`minhealth`,`maxhealth`,`PowerType`,`minmana`,`maxmana`,`armor`,`faction_A`,`faction_H`,`npcflag`,`speed_walk`,`speed_run`,`scale`,`rank`,`mindmg`,`maxdmg`,`dmgschool`,`attackpower`,`dmg_multiplier`,`baseattacktime`,`rangeattacktime`,`unit_class`,`unit_flags`,`dynamicflags`,`family`,`trainer_type`,`trainer_spell`,`trainer_class`,`trainer_race`,`minrangedmg`,`maxrangedmg`,`rangedattackpower`,`type`,`type_flags`,`lootid`,`pickpocketloot`,`skinloot`,`resistance1`,`resistance2`,`resistance3`,`resistance4`,`resistance5`,`resistance6`,`spell1`,`spell2`,`spell3`,`spell4`,`spell5`,`spell6`,`spell7`,`spell8`,`PetSpellDataId`,`mingold`,`maxgold`,`AIName`,`MovementType`,`InhabitType`,`unk16`,`unk17`,`RacialLeader`,`questItem1`,`questItem2`,`questItem3`,`questItem4`,`questItem5`,`questItem6`,`movementId`,`RegenHealth`,`vehicle_id`,`equipment_id`,`trainer_id`,`vendor_id`,`mechanic_immune_mask`,`flags_extra`,`ScriptName`) VALUES
+(3666101,0,0,0,0,0,27982,0,0,0,'Rimefang','','',0,82,82,3235440,3235440,0,41690,41690,10225,14,14,0,2,1.5873,1,1,420,631,0,158,2.2,2000,2000,2,64,0,0,0,0,0,0,336,505,126,6,72,36658,0,0,0,0,0,0,0,0,69246,0,0,0,0,0,0,0,0,0,0,'',0,4,240,10,0,0,0,0,0,0,0,0,1,535,0,0,0,8388624,0,'');
+UPDATE `creature_template` SET `difficulty_entry_1`=3666101 WHERE `entry`='36661';
+
+-- Ajout des loots sur Rimefang
+UPDATE `creature_template` SET `lootid`=36658 WHERE `entry`='36661';
+UPDATE `creature_template` SET `lootid`=36938 WHERE `entry`='3666101';
     
 -- Implantation de trashs manquants
 INSERT INTO `creature` (`guid`,`id`,`map`,`spawnMask`,`phaseMask`,`modelid`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`spawndist`,`currentwaypoint`,`curhealth`,`curmana`,`DeathState`,`MovementType`) VALUES
