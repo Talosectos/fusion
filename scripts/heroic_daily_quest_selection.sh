@@ -3,7 +3,7 @@
 # configuration
 home="/opt/mangosr2"
 mangosConf=$home"/etc/mangosd.conf"
-updatefile=$home"/bin/heroic_daily_quest_selection.sql"
+updateFile=$home"/bin/heroic_daily_quest_selection.sql"
 #
 ###############################################################################
 # functions
