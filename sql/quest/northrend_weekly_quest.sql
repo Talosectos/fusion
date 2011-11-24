@@ -22,7 +22,7 @@ INSERT IGNORE INTO `creature_involvedrelation` (`id`,`quest`) VALUES (20735,1000
 INSERT IGNORE INTO `creature_questrelation` (`id`,`quest`) VALUES (20735,100001);
 INSERT IGNORE INTO `creature_involvedrelation` (`id`,`quest`) VALUES (20735,100001);
 INSERT IGNORE INTO `creature_questrelation` (`id`,`quest`) VALUES (20735,2459001);
-INSERT IGNORE INTO `creature_involvedrelation` (`id`,`quest`) VALUES (20735,245901);
+INSERT IGNORE INTO `creature_involvedrelation` (`id`,`quest`) VALUES (20735,2459001);
 INSERT IGNORE INTO `creature_questrelation` (`id`,`quest`) VALUES (20735,600010);
 INSERT IGNORE INTO `creature_involvedrelation` (`id`,`quest`) VALUES (20735,600010);
 INSERT IGNORE INTO `creature_questrelation` (`id`,`quest`) VALUES (20735,600011);
