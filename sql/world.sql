@@ -22,7 +22,7 @@ INSERT IGNORE INTO `creature` (`guid`,`id`,`map`,`spawnMask`,`phaseMask`,`modeli
 UPDATE `npc_vendor` SET `ExtendedCost`=2744 WHERE `entry`='99321' and`item`='49908' and`ExtendedCost`='2723';
 
 -- Add dalaran vendors
-INSERT INTO `creature` (`guid`,`id`,`map`,`spawnMask`,`phaseMask`,`modelid`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`spawndist`,`currentwaypoint`,`curhealth`,`curmana`,`DeathState`,`MovementType`) VALUES
+INSERT IGNORE INTO `creature` (`guid`,`id`,`map`,`spawnMask`,`phaseMask`,`modelid`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`spawndist`,`currentwaypoint`,`curhealth`,`curmana`,`DeathState`,`MovementType`) VALUES
 (4456415,32638,571,1,1,0,0,5912.78,656.225,643.736,4.79965,25,5,0,12600,0,0,0),
 (4456414,32639,571,1,1,0,0,5917.2,653.693,643.849,3.77392,25,5,0,12600,0,0,0),
 (4456417,32641,571,1,1,0,0,5889.39,648.388,645.88,5.94869,25,5,0,12600,0,0,0),
