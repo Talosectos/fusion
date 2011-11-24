@@ -4,6 +4,7 @@
 home="/opt/mangosr2"
 mangosConf=$home"/etc/mangosd.conf"
 updateFile=$home"/bin/heroic_daily_quest_selection.sql"
+updateFileTemp=$home"/bin/temp.sql"
 #
 ###############################################################################
 # functions
@@ -22,5 +23,11 @@ function db_config_extract()
 ########## Update npc quest takers end receivers
 dtemp=$(db_config_extract $mangosConf "WorldDatabaseInfo")
 read mangoshost mangosport mangosuser mangospass mangosdb <<<$dtemp
-
-db_run $mangoshost $mangosport $mangosuser $mangospass $mangosdb "$updateFile"
+dquest=$(db_run $mangoshost $mangosport $mangosuser $mangospass $mangosdb "$updateFile")
+pattern="[0-9][0-9]*"
+dquest=$(echo $dquest | sed "s/$pattern/\n&\n/g" | sed -n "/$pattern/p")
+echo $dquest
+echo "INSERT IGNORE INTO creature_questrelation (id,quest) VALUES (20735,"$dquest");" >> $updateFileTemp
+echo "INSERT IGNORE INTO creature_involvedrelation (id,quest) VALUES (20735,"$dquest");" >> $updateFileTemp
+db_run $mangoshost $mangosport $mangosuser $mangospass $mangosdb "$updateFileTemp"
+rm $updateFileTemp
