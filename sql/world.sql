@@ -58,3 +58,9 @@ INSERT IGNORE INTO `creature_questrelation` (`id`,`quest`) VALUES (99321,111222)
 INSERT IGNORE INTO `creature_involvedrelation` (`id`,`quest`) VALUES (99321,111222);
 INSERT IGNORE INTO `creature_questrelation` (`id`,`quest`) VALUES (99321,111223);
 INSERT IGNORE INTO `creature_involvedrelation` (`id`,`quest`) VALUES (99321,111223);
+
+-- Fix game event
+UPDATE `game_event` SET `start_time`='2011-11-06 00:01:00', `occurence`=30060 WHERE `entry`='3';
+UPDATE `game_event` SET `start_time`='2011-12-04 00:01:00', `occurence`=30060 WHERE `entry`='4';
+UPDATE `game_event` SET `start_time`='2012-01-01 00:01:00', `occurence`=30060 WHERE `entry`='5';
+UPDATE `game_event` SET `start_time`='2010-12-31 12:00:00', `length`=1080 WHERE `entry`='6';
