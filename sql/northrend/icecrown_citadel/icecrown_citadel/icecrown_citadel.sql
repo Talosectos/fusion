@@ -1,6 +1,6 @@
 -- ICC SQL (by Talos)
-DELETE FROM `creature_ai_scripts` WHERE `creature_id` IN (38222,347800);
-UPDATE  `creature_template` SET  `AIName` =  'EventAI',`ScriptName` =  '' WHERE  `creature_template`.`entry` IN (38222,347800);
+DELETE FROM `creature_ai_scripts` WHERE `creature_id`=38222;
+UPDATE  `creature_template` SET  `AIName` =  'EventAI',`ScriptName` =  '' WHERE  `creature_template`.`entry`=38222;
 DELETE FROM `creature_loot_template` WHERE `entry`=347800;
 
 -- Suppression des loots dans les coffres Gunship Battle
