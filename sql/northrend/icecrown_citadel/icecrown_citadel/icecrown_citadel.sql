@@ -3,6 +3,9 @@ DELETE FROM `creature_ai_scripts` WHERE `creature_id`=38222;
 UPDATE  `creature_template` SET  `AIName` =  'EventAI',`ScriptName` =  '' WHERE  `creature_template`.`entry`=38222;
 DELETE FROM `creature_loot_template` WHERE `entry`=347800;
 
+-- Spawn des trashs à 6H
+UPDATE `creature` SET spawntimsecs=21600 WHERE map=631 AND spawntimesecs=7200;
+
 -- Suppression des loots dans les coffres Gunship Battle
 -- Revert changes
 /*UPDATE `gameobject_template` SET `data1`=201875 WHERE `entry`='202180';
